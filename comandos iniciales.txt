@@ -1,0 +1,199 @@
+git init inicializa un repositorio en el directorio donde se ejecuta el comando. Desde este comando, Git podrá administrar los cambios realizados en los archivos.
+Que con el comando git init pudimos crear un repositorio Git;
+Cómo analizar el estado de nuestro repositorio usando el comando git status.
+
+
+Karla@LAPTOP-V9OI8QCC MINGW64 ~
+$ mkdir testgit
+
+Karla@LAPTOP-V9OI8QCC MINGW64 ~
+$ cd testgit
+
+Karla@LAPTOP-V9OI8QCC MINGW64 ~/testgit
+$ touch index.html
+
+Karla@LAPTOP-V9OI8QCC MINGW64 ~/testgit
+$ code .
+
+Karla@LAPTOP-V9OI8QCC MINGW64 ~/testgit
+$ git config --global user.name "karlarochaes"
+
+Karla@LAPTOP-V9OI8QCC MINGW64 ~/testgit
+$ git config --global user.email karla.rocha@comunidad.unam.mx
+
+Karla@LAPTOP-V9OI8QCC MINGW64 ~/testgit
+$ git config --global -l
+user.name=karlarochaes
+user.email=karla.rocha@comunidad.unam.mx
+
+Karla@LAPTOP-V9OI8QCC MINGW64 ~/testgit
+$ echo "# testBedu" >> README.md
+
+Karla@LAPTOP-V9OI8QCC MINGW64 ~/testgit
+$ git init
+Initialized empty Git repository in C:/Users/walmart/testgit/.git/
+
+Karla@LAPTOP-V9OI8QCC MINGW64 ~/testgit (master)
+$ git add .
+warning: LF will be replaced by CRLF in README.md.
+The file will have its original line endings in your working directory
+
+Karla@LAPTOP-V9OI8QCC MINGW64 ~/testgit (master)
+$ git commit -m "first commit"
+[master (root-commit) 2cf2928] first commit
+ 2 files changed, 1 insertion(+)
+ create mode 100644 README.md
+ create mode 100644 index.html
+
+Karla@LAPTOP-V9OI8QCC MINGW64 ~/testgit (master)
+$ git branch -M main
+
+Karla@LAPTOP-V9OI8QCC MINGW64 ~/testgit (main)
+$ git remote add origin https://github.com/karlarochaes/testBedu.git
+
+Karla@LAPTOP-V9OI8QCC MINGW64 ~/testgit (main)
+$ git push -u origin main
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (4/4), 271 bytes | 135.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/karlarochaes/testBedu.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+
+Karla@LAPTOP-V9OI8QCC MINGW64 ~/testgit (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+
+Karla@LAPTOP-V9OI8QCC MINGW64 ~/testgit (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Karla@LAPTOP-V9OI8QCC MINGW64 ~/testgit (main)
+$ git add .
+
+Karla@LAPTOP-V9OI8QCC MINGW64 ~/testgit (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   index.html
+
+
+Karla@LAPTOP-V9OI8QCC MINGW64 ~/testgit (main)
+$ git commit -m "creacion estructura basica html"
+[main a58d945] creacion estructura basica html
+ 1 file changed, 12 insertions(+)
+
+Karla@LAPTOP-V9OI8QCC MINGW64 ~/testgit (main)
+$ git push origin main
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 484 bytes | 242.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/karlarochaes/testBedu.git
+   2cf2928..a58d945  main -> main
+
+Karla@LAPTOP-V9OI8QCC MINGW64 ~/testgit (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+
+Karla@LAPTOP-V9OI8QCC MINGW64 ~/testgit (main)
+$ git branch
+* main
+
+Karla@LAPTOP-V9OI8QCC MINGW64 ~/testgit (main)
+$ git branch testing
+
+Karla@LAPTOP-V9OI8QCC MINGW64 ~/testgit (main)
+$ git checkout testing
+Switched to branch 'testing'
+
+Karla@LAPTOP-V9OI8QCC MINGW64 ~/testgit (testing)
+$ git branch
+  main
+* testing
+
+Karla@LAPTOP-V9OI8QCC MINGW64 ~/testgit (testing)
+$ touch bedu.html
+
+Karla@LAPTOP-V9OI8QCC MINGW64 ~/testgit (testing)
+$ git status
+On branch testing
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        bedu.html
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Karla@LAPTOP-V9OI8QCC MINGW64 ~/testgit (testing)
+$ git add .
+
+Karla@LAPTOP-V9OI8QCC MINGW64 ~/testgit (testing)
+$ git commit -m "se crea documento bedu.html"
+[testing 70aaf65] se crea documento bedu.html
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 bedu.html
+
+Karla@LAPTOP-V9OI8QCC MINGW64 ~/testgit (testing)
+$ git status
+On branch testing
+nothing to commit, working tree clean
+
+Karla@LAPTOP-V9OI8QCC MINGW64 ~/testgit (testing)
+$ git push origin testing
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 320 bytes | 160.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+remote:
+remote: Create a pull request for 'testing' on GitHub by visiting:
+remote:      https://github.com/karlarochaes/testBedu/pull/new/testing
+remote:
+To https://github.com/karlarochaes/testBedu.git
+ * [new branch]      testing -> testing
+
+Karla@LAPTOP-V9OI8QCC MINGW64 ~/testgit (testing)
+$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+Karla@LAPTOP-V9OI8QCC MINGW64 ~/testgit (main)
+$ git merge testing
+Updating a58d945..70aaf65
+Fast-forward
+ bedu.html | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 bedu.html
+
+Karla@LAPTOP-V9OI8QCC MINGW64 ~/testgit (main)
+$ git push origin main
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/karlarochaes/testBedu.git
+   a58d945..70aaf65  main -> main
+
+Karla@LAPTOP-V9OI8QCC MINGW64 ~/testgit (main)
+$ ls
+README.md  bedu.html  index.html
